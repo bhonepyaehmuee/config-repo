@@ -1,16 +1,12 @@
-spring:
-  application:
-    name: configexercise
-
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/bhonepyaehmuee/config-repo.git
-          clone-on-start: true
-          default-label: main
-          # username: your-username
-          # password: your-token
+cloud:
+  config:
+    server:
+      git:
+        uri: https://github.com/bhonepyaehmuee/config-repo.git
+        clone-on-start: true
+        default-label: main
+        # username: your-username
+        # password: your-token
 
 server:
   port: 8888
