@@ -1,7 +1,3 @@
-spring:
-  application:
-    name: product-exercise
-
 server:
   port: 8081
 
