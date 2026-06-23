@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: category-exercise
+  
+
+server:
+  port: 8082
+
+service:
+  message: "Hello from Category Service Config on GitHub!"
