@@ -18,12 +18,12 @@ spring:
         - id: product-service
           uri: lb://PRODUCT-SERVICE         # Load-balances using Eureka's registry
           predicates:
-            - Path=/test-config # Routes any request starting with /test-config/
+            - Path=/test-config, /test-config/** # Routes any request starting with /test-config/
 
         - id: category-service
           uri: lb://CATEGORY-SERVICE
           predicates:
-            - Path=/message # Routes any request starting with /message/
+            - Path=/message, /message/** # Routes any request starting with /message/
 
 # EUREKA CLIENT CONFIGURATION
 eureka:
@@ -40,7 +40,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "health,info"
+        include: "*"
   endpoint:
     health:
       show-details: always
