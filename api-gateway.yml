@@ -7,24 +7,21 @@ spring:
 
   cloud:
     gateway:
-
-      # ===== EUREKA AUTO ROUTING =====
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
 
-      # ===== CUSTOM ROUTES =====
       routes:
         - id: product-service
           uri: lb://PRODUCT-SERVICE
           predicates:
-            - Path=/test-config/**
+            - Path=/test-config
 
         - id: category-service
           uri: lb://CATEGORY-SERVICE
           predicates:
-            - Path=/message/**
+            - Path=/message
 
 eureka:
   client:
@@ -42,6 +39,10 @@ management:
   endpoint:
     health:
       show-details: always
+
+  endpoint:
+    info:
+      enabled: true
 
 info:
   app:
