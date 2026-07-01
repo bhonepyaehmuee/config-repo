@@ -11,7 +11,9 @@ spring:
       discovery:
         locator:
           enabled: true
-          lower-case-service-name: true  # Allows http://localhost:8080/product-service/path
+          lower-case-service-name: true
+          predicates:
+            - Path=/{serviceId:^(?!actuator).*}/**  # Allows http://localhost:8080/product-service/path
 
       # OPTION 2: CUSTOM EXPLICIT ROUTING
       routes:
@@ -24,10 +26,7 @@ spring:
           uri: lb://CATEGORY-SERVICE
           predicates:
             - Path=/message, /message/**
-        - id: actuator
-          uri: forward:/actuator
-          predicates:
-            - Path=/actuator/** # Routes any request starting with /message/
+         # Routes any request starting with /message/
 
 # EUREKA CLIENT CONFIGURATION
 eureka:
