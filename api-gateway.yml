@@ -40,7 +40,9 @@ management:
   endpoints:
     web:
       exposure:
-        include: "gateway,health,info"      # Exposes /actuator/gateway/routes to see active paths
+        include: "health,info"      # Exposes /actuator/gateway/routes to see active paths
   endpoint:
     health:
       show-details: always
+    info:
+      enabled: true
