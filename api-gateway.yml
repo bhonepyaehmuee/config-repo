@@ -40,9 +40,14 @@ management:
   endpoints:
     web:
       exposure:
-        include: "health,info"      # Exposes /actuator/gateway/routes to see active paths
+        include: "health,info"
   endpoint:
     health:
       show-details: always
-    info:
-      enabled: true
+
+# FIXED: Moved to the root level and added dummy metadata so the endpoint isn't empty!
+info:
+  app:
+    name: "API Gateway"
+    description: "Spring Cloud Gateway MVC"
+    version: "1.0.0"
