@@ -4,10 +4,18 @@ server:
 service:
   message: "Hello from Product Service Config on GitHub!"
 
-# ADD THIS BLOCK BELOW
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "info,health"
+  endpoint:
+    health:
+      show-details: always
