@@ -23,7 +23,11 @@ spring:
         - id: category-service
           uri: lb://CATEGORY-SERVICE
           predicates:
-            - Path=/message, /message/** # Routes any request starting with /message/
+            - Path=/message, /message/**
+        - id: actuator
+          uri: forward:/actuator
+          predicates:
+            - Path=/actuator/** # Routes any request starting with /message/
 
 # EUREKA CLIENT CONFIGURATION
 eureka:
