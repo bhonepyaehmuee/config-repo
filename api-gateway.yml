@@ -10,18 +10,6 @@ spring:
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true
-
-      routes:
-        - id: product-service
-          uri: lb://PRODUCT-SERVICE
-          predicates:
-            - Path=/test-config
-
-        - id: category-service
-          uri: lb://CATEGORY-SERVICE
-          predicates:
-            - Path=/message
 
 eureka:
   client:
@@ -39,8 +27,6 @@ management:
   endpoint:
     health:
       show-details: always
-
-  endpoint:
     info:
       enabled: true
 
